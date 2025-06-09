@@ -5,7 +5,7 @@ def home(request):
     return render(request, 'home.html')
 
 def info(request):
-    return HttpResponse("<h2>This is info page</h2>")
+    return render(request, 'info.html')
 
 def projects(request):
-    return HttpResponse("<h2>This is projects page</h2>")
+    return render(request, 'projects.html')

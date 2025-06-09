@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body { font-family: Arial; text-align: center; background: #eef; padding-top: 100px; }
+        a.logout { position: absolute; top: 10px; right: 10px; text-decoration: none; padding: 8px; background: #ccc; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <a href="{% url 'admin_logout' %}" class="logout">Logout</a>
+    <h1>Welcome, Admin!</h1>
+    <p>This is your dashboard.</p>
+</body>
+</html>

@@ -15,20 +15,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.contrib import admin
-from django.urls import path,include
-from django.shortcuts import render, redirect
+#from django.contrib import admin
+#from django.urls import path
 
-# Home page view
-def home(request):
-    return render(request, 'home.html')
+#urlpatterns = [
+#    path("admin/", admin.site.urls),
+#]
+
+
+from django.contrib import admin
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', home, name='home'),
-    path('phone/', include('phone.urls')),
-    path('pc/', include('pc.urls')),
-    path('raspberrypi/', include('raspberrypi.urls')),
-    path('', lambda request: redirect('pc_stream')),
+    path('', include('portfolio.urls')),
+    path('adminpanel/', include('adminpanel.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

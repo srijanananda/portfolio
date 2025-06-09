@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+    <style>
+        body { font-family: Arial; background: #f2f2f2; text-align: center; }
+        form { margin-top: 150px; display: inline-block; background: white; padding: 40px; border-radius: 10px; }
+        input { display: block; margin: 10px auto; padding: 10px; width: 200px; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h2>Admin Login</h2>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <input type="submit" value="Login" />
+    </form>
+</body>
+</html>

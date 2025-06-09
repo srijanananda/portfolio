@@ -1,21 +1,75 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Device Selector</title>
+    <title>My Portfolio</title>
     <style>
-        body { text-align: center; margin-top: 100px; font-family: Arial; }
-        button {
-            padding: 15px 25px;
-            margin: 10px;
+        body { font-family: Arial; margin: 0; padding: 0; }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+        .container {
+            display: flex;
+            max-width: 900px;
+            margin: 50px auto;
+            gap: 40px;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .intro {
+            flex: 1;
+        }
+        .intro p {
             font-size: 18px;
-            cursor: pointer;
+            line-height: 1.5;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 15px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .buttons a:hover {
+            background: #555;
+        }
+        .photo {
+            flex: 1;
+            text-align: right;
+        }
+        .photo img {
+            max-width: 300px;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Select Your Device</h1>
-    <a href="/phone/"><button>Phone</button></a>
-    <a href="/pc/"><button>PC</button></a>
-    <a href="/raspberrypi/"><button>Raspberry Pi</button></a>
+    <header>
+        <a href="{% url 'admin_login' %}" style="color:white; text-decoration:none; font-weight:bold;">Admin Login</a>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <p>AI/ML enthusiast and full-stack developer with expertise in Python programming, Django framework, and machine learning libraries. Experienced in end-to-end web development, backend integration, and real-time AI-based applications. Adept at agile methodologies, debugging, and performance optimization.</p>
+
+            <div class="buttons">
+                <a href="{% url 'info' %}">Info</a>
+                <a href="{% url 'projects' %}">Projects</a>
+            </div>
+        </div>
+
+        <div class="photo">
+            <img src="{% static 'images/srijan_photo.jpg' %}" alt="Srijan Photo">
+        </div>
+    </div>
 </body>
 </html>

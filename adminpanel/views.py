@@ -6,6 +6,10 @@ from .forms import ProjectForm
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
 
+from .models import Info
+from .forms import InfoForm
+
+
 def admin_login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -44,3 +48,19 @@ def delete_project(request, project_id):
     project = get_object_or_404(Project, id=project_id)
     project.delete()
     return redirect('view_projects')
+
+
+
+@login_required
+def edit_info(request):
+    info = Info.objects.first()  # only one info allowed
+
+    if request.method == 'POST':
+        form = InfoForm(request.POST, instance=info)
+        if form.is_valid():
+            form.save()
+            return redirect('view_projects')
+    else:
+        form = InfoForm(instance=info)
+
+    return render(request, 'adminpanel/edit_info.html', {'form': form})

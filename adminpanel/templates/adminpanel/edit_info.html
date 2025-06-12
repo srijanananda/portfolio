@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Info</title>
+</head>
+<body>
+    <h2>Edit Info Page</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+    <br>
+    <a href="{% url 'view_projects' %}">← Back to Admin Panel</a>
+</body>
+</html>

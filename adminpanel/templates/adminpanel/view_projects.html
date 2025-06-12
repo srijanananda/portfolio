@@ -1,7 +1,10 @@
 <h2>Projects</h2>
-<a href="{% url 'add_project' %}">Add New Project</a> | 
+
+<a href="{% url 'add_project' %}">Add New Project</a> |
+<a href="{% url 'edit_info' %}">Edit Info Page</a> |
 <a href="{% url 'admin_logout' %}">Logout</a>
-<<ul>
+
+<ul>
     {% for project in projects %}
     <li>
         <h3>{{ project.name }}</h3>

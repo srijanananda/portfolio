@@ -1,0 +1,20 @@
+<h2>Projects</h2>
+<a href="{% url 'add_project' %}">Add New Project</a> | 
+<a href="{% url 'admin_logout' %}">Logout</a>
+<<ul>
+    {% for project in projects %}
+    <li>
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.description }}</p>
+        <a href="{{ project.link }}" target="_blank">
+            <button>Visit Project</button>
+        </a>
+        <form method="post" action="{% url 'delete_project' project.id %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" style="color:red;">Delete</button>
+        </form>
+    </li>
+    {% empty %}
+    <li>No projects added yet.</li>
+    {% endfor %}
+</ul>
